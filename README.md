@@ -26,7 +26,8 @@
 	
 
 ## What is My Panda
-This is the native Java App version of MyPanda
+This is the native Java App version of MyPanda.
+
 [My Panda](https://mypanda.website) is a web app that promotes mental health. This is achieved through providing the capability to record emotions, set goals, and write journals. These allow for quick and convenient ways to reflect on past trends and promote personal growth. Furthermore, My Panda provides resources for managing stress, anxiety, anger, and much more!
 
 ## Getting Started
