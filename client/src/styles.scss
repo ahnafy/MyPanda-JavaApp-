@@ -1,0 +1,739 @@
+@import "theme";
+/* You can add global styles to this file, and also import other style files */
+
+
+.mat-dialog-container {
+    margin: auto;
+}
+
+
+.arial *{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.verdana *{
+    font-family: Verdana, Geneva, sans-serif;
+}
+.times-new-roman *{
+    font-family: "Times New Roman", Times, serif;
+}
+.comic-sans *{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.panda {
+    --main: #e3f2fd;
+    --accent: #FFFFFF;
+    --sidebar: #546E7A;
+    --navbar: #03A9F4;
+    --alttxt: #FFFFFF;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+         .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.dark {
+    --main: #659295;
+    --accent: #9E9E9E;
+    --sidebar: #415762;
+    --navbar: #024969;
+    --alttxt: #D4D4D4;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/*
+.high-contrast {
+    --main: #000000;
+    --accent: #FFFF01;
+    --sidebar: #3FF241;
+    --navbar: #15EFFB;
+    --alttxt: #3FF241;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--main);
+                border: 1px solid #FFFFFF;
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+    form{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+    .mat-card{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+    .mat-card-header{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+    .mat-card-content{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+    .mat-stepper-horizontal{
+        background-color: var(--main);
+        border: 1px solid #FFFFFF;
+    }
+
+    .mat-button-wrapper{
+        background-color: var(--main);
+        border: 8px solid #000000;
+    }
+
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .mat-icon-button{
+        background-color: #FFFFFF;
+    }
+
+    *.mat-raised-button{
+        background-color: #FFFFFF;
+    }
+
+    *{
+        color: #FFFFFF;
+    }
+
+    .page-title{
+        color: #15EFFB;
+    }
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer *{
+        color: #FFFF01;
+    }
+
+    .home-img{
+        background-color: #FFFFFF;
+    }
+
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+*/
+
+
+.neutral {
+    --main: #5B7065;
+    --accent: #C9D1C8;
+    --sidebar: #04202C;
+    --navbar: #304040;
+    --alttxt: #FFFFFF;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+.leaf {
+    --main: #C6D166;
+    --accent: #FFFFFF;
+    --sidebar: #0F1B07;
+    --navbar: #5C821A;
+    --alttxt: #FFFFFF;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.sunflower {
+    --main: #7CAA2D;
+    --accent: #F5E356;
+    --sidebar: #CB6318;
+    --navbar: #34888C;
+    --alttxt: #FFFFFF;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.windows95 {
+    --main: #008080;
+    --accent: #E0E0E0;
+    --sidebar: #B0B0B0;
+    --navbar: #808080;
+    --alttxt: #FFFFFF;
+
+
+    height: 100vh;
+    background-color: var(--main);
+    .content{
+        background-color: var(--main);
+        *{
+            .sidenav {
+                background-color: var(--sidebar);
+            }
+        }
+    }
+
+    .mat-toolbar{
+        background-color: var(--navbar);
+    }
+    form{
+        background-color: var(--accent);
+    }
+    .mat-card{
+        background-color: var(--accent);
+    }
+    .mat-card-header{
+        background-color: var(--accent);
+    }
+    .mat-card-content{
+        background-color: var(--accent);
+    }
+    .mat-stepper-horizontal {
+        background-color: var(--accent);
+    }
+
+    .journal-card {
+        .mat-card-content{
+            background-color: var(--accent);
+        }
+        .journal-details{
+            background-color: var(--accent);
+        }
+    }
+
+    .alt-color{
+        color: var(--alttxt);
+    }
+    .computer{
+        color: var(--alttxt);
+    }
+
+    .main{
+        background-color: var(--main);
+    }
+    .accent{
+        background-color: var(--accent);
+    }
+    .sidebar{
+        background-color: var(--sidebar);
+    }
+    .navbar{
+        background-color: var(--navbar);
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+
+/*prevents clicking forward on mat stepper steps*/
+.mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+//every submit button green background color
+.submit {
+    background-color: #E8F5E9;
+}
+
+//for new object dialogs
+.new-object-title {
+    text-align: center;
+}
+
+.new-object-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-object-form > * {
+    width: 100%;
+}
+
+.button-options {
+    text-align: center;
+}
+
+//for journals, resources, & goals sidenavs
+.sidenav {
+    height: 100%;
+    width: 275px;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    text-align: center;
+    //background-color: #546E7A;
+}
+
+.new-object-button {
+    width: 65%;
+    margin-bottom: 15px;
+}
+
+.new-object-button:hover {
+    background-color: #C8E6C9;
+}
+
+.page-title {
+    margin: 15px;
+    color: white;
+    font-size: 34px;
+}
+
+//for journals & goals page content and cards
+.grid-list {
+    margin-left: 275px;
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+

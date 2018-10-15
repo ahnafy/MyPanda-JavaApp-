@@ -1,0 +1,40 @@
+<form #editContactForm="ngForm">
+    <div class="edit-contact-page" layout-gt-sm="row">
+        <div flex-gt-sm="80" flex-offset-gt-sm="10">
+            <mat-card-title>Edit Contact</mat-card-title>
+            <mat-card-content>
+                <mat-form-field hintLabel="Enter your contact's name here">
+                    <input matInput #input required
+                           maxlength="10"
+                           id="nameField" placeholder="Name"
+                           [(ngModel)]="data.contact.name"
+                           name="data.contact.name">
+                </mat-form-field>
+                <mat-form-field hintLabel="Enter phone number here">
+                    <input matInput #input required
+                           maxlength="10"
+                           id="phoneField" placeholder="Phone"
+                           [(ngModel)]="data.contact.phone"
+                           name="data.contact.phone">
+                </mat-form-field>
+                <mat-form-field hintLabel="Enter email here">
+                    <input matInput
+                           maxlength="20"
+                           id="emailField" placeholder="Email"
+                           [(ngModel)]="data.contact.email"
+                           name="data.contact.phone">
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-raised-button
+                    id="confirmEditContactButton"
+                    [mat-dialog-close]="data.contact"
+                    [disabled]="!editContactForm.form.valid"
+                    type="button">Submit
+            </button>
+            <button mat-raised-button
+                    id="exitWithoutEditingButton"
+                    (click)="onNoClick()">Cancel
+            </button>
+        </div>
+    </div>
+</form>

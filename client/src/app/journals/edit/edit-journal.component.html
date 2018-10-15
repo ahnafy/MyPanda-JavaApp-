@@ -1,0 +1,32 @@
+<form #editJournalForm="ngForm">
+    <mat-card-title class="edit-journal-title">Edit Journal</mat-card-title>
+    <mat-form-field hintLabel="Max 40 characters">
+        <input matInput #input required
+               id="titleField"
+               maxlength="40"
+               placeholder="Title"
+               [(ngModel)]="data.journal.title"
+               name="data.journal.title">
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput #input required
+                  id="contentField"
+                  placeholder="Body"
+                  [(ngModel)]="data.journal.content"
+                  matTextareaAutosize matAutosizeMinRows="3"
+                  matAutosizeMaxRows="7"
+                  name="data.journal.content"></textarea>
+    </mat-form-field>
+    <div class="button-options">
+        <button mat-raised-button
+                id="confirmEditJournalButton"
+                [mat-dialog-close]="data.journal"
+                [disabled]="!editJournalForm.form.valid"
+                type="button">Submit
+        </button>
+        <button mat-raised-button
+                id="exitWithoutEditingButton"
+                (click)="onNoClick()">Cancel
+        </button>
+    </div>
+</form>

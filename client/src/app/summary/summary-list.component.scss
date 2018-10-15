@@ -1,0 +1,78 @@
+.your-summaries-title {
+    text-align: center;
+}
+
+mat-card.filtering.mat-card {
+    text-align: center;
+}
+
+.top {
+    padding: 0.5%;
+    text-align: center;
+}
+
+.filtering {
+    width: 99%;
+}
+
+.graphFilter {
+    padding: 1%;
+}
+
+.filterButton {
+    text-align: center;
+    background-color: lightblue;
+}
+
+#Chart {
+    max-height:90vh;
+    max-width: 175vh;
+}
+
+.selected {
+    background-color: #bebebe;
+}
+
+.selected-emotion {
+    width: 25px;
+    padding-right: 2%;
+}
+
+.deselected {
+    box-shadow: 0 1px 3px grey;
+}
+
+* {
+    text-align: center;
+}
+
+.show-more-button {
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.table-header-div {
+    border-right: black solid 2px;
+    border-left: black solid 2px;
+    border-top: black solid 2px;
+}
+
+.table-div {
+    border: black solid 2px;
+}
+
+.entire-table {
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.mat-header-cell {
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.page-scroll-buttons {
+    text-align: center;
+}
+
+.entire-table{
+    padding-bottom: 5px;
+}

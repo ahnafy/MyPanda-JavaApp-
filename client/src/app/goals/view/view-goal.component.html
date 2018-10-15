@@ -1,0 +1,39 @@
+<div class="sidenav" hide-xs>
+    <h2 class="page-title break-word">{{goal.name}}</h2>
+    <hr class="nav-title-divider">
+    <button mat-raised-button class="back"
+            (click)="backClicked()">Back</button>
+</div>
+<div class="goal" hide-xs>
+    <mat-card class="goal-card">
+        <mat-card-header>
+            <mat-card-title class="goal-title break-word">{{goal.name}}</mat-card-title>
+            <button mat-icon-button class="edit action-button"
+                    (click)="openEditGoalDialog(goal._id['$oid'], goal.purpose, goal.category, goal.name, goal.status, goal.frequency, goal.start, goal.end, goal.next)">
+                <mat-icon>create</mat-icon>
+            </button>
+            <button mat-icon-button class="delete action-button"
+                    (click)="deleteGoal(goal._id['$oid']); backClicked()">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <mat-card-subtitle>{{goal.end | date : "MMM d, yyyy 'at' h:mm a"}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="goal-content break-word">{{goal.purpose}}</mat-card-content>
+    </mat-card>
+</div>
+<div class="goal-mobile" hide-gt-xs>
+    <div class="mobile-title">
+        <h2>{{goal.name}}</h2>
+    </div>
+    <p matLine *ngIf="goal.end == ''" class="mobile-date">No end date</p>
+    <p matLine *ngIf="goal.end != ''" class="mobile-date">Ends on {{goal.end | date : "MMM d, yyyy"}}</p>
+    <mat-divider></mat-divider>
+    <div class="mobile-content">
+        <p *ngIf="goal.frequency != 'Does not repeat'">This is a {{goal.frequency | lowercase}} goal</p>
+        <p *ngIf="goal.frequency == 'Does not repeat'">This goal does not repeat</p>
+        <p>{{goal.purpose}}</p>
+    </div>
+    <button class="mobile-edit" (click)="openEditGoalDialog(goal._id['$oid'], goal.purpose, goal.category, goal.name, goal.status, goal.frequency, goal.start, goal.end, goal.next)" mat-fab color="primary">
+        <mat-icon>edit</mat-icon></button>
+</div>

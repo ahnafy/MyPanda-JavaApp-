@@ -1,0 +1,113 @@
+<div [ngClass]="appService.styleClassSelector()">
+        <mat-card class="settings-card">
+            <mat-card-title class="title">Settings</mat-card-title>
+            <mat-divider></mat-divider>
+                <form>
+
+                    <label class="text"> Font: </label>
+
+                    <button mat-button class="arial"
+                            (click)="this.font = 'arial'; saveSettings()">
+                        Arial</button>
+
+                    <button mat-button class="verdana"
+                            (click)="this.font = 'verdana'; saveSettings()">
+                        Verdana</button>
+
+                    <button mat-button class="times-new-roman"
+                            (click)="this.font = 'times-new-roman'; saveSettings()">
+                        Times New Roman</button>
+
+                    <button mat-button class="comic-sans"
+                            (click)="this.font = 'comic-sans'; saveSettings()">
+                        Comic Sans</button>
+
+
+                    <br><br><br>
+                    <label class="text"> BG Theme: </label>
+
+                    <label class="theme-radio">
+                    <input type="radio"
+                           (click)="this.theme = 'panda'; saveSettings()">
+                        <a class="panda">
+                            <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <label class="theme-radio">
+                    <input type="radio"
+                           (click)="this.theme = 'dark'; saveSettings()">
+                        <a class="dark">
+                        <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <label class="theme-radio">
+                        <input type="radio"
+                               (click)="this.theme = 'neutral'; saveSettings()">
+                        <a class="neutral">
+                            <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <label class="theme-radio">
+                    <input type="radio"
+                           (click)="this.theme = 'leaf'; saveSettings()">
+                        <a class="leaf">
+                            <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <label class="theme-radio">
+                        <input type="radio"
+                               (click)="this.theme = 'sunflower'; saveSettings()">
+                        <a class="sunflower">
+                            <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <label class="theme-radio">
+                        <input type="radio"
+                               (click)="this.theme = 'windows95'; saveSettings()">
+                        <a class="windows95">
+                            <span class="radio-border"></span>
+                            <span class="main"></span>
+                            <span class="accent"></span>
+                            <span class="sidebar"></span>
+                            <span class="navbar"></span>
+                        </a>
+                    </label>
+                    <br><br>
+                </form>
+
+        </mat-card>
+
+
+ <mat-card class="about-card">
+     <mat-card-title class="title">About</mat-card-title>
+     <mat-divider></mat-divider>
+    <div class="credits text">
+        Icons made by
+        <a title="Freepik" href="http://www.freepik.com">Freepik</a>
+        from
+        <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>
+    </div>
+ </mat-card>
+
+</div>
+

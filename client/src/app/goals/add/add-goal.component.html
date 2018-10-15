@@ -1,0 +1,68 @@
+<form #newGoalForm="ngForm" class="new-object-form">
+    <mat-card-title class="new-object-title">New Goal</mat-card-title>
+
+    <mat-form-field hintLabel="Max 45 characters">
+        <input matInput #input maxlength="45"
+               required class="nameField"
+               placeholder="What is your goal?"
+               [(ngModel)]="data.goal.name"
+               name="data.name.category">
+    </mat-form-field>
+    <mat-select matInput required class="category-list"
+                [(ngModel)]="data.goal.category"
+                placeholder="Category"
+                name="data.goal.category">
+        <mat-option value="business-career" class="business-career">Business and Career</mat-option>
+        <mat-option value="family">Family</mat-option>
+        <mat-option value="finances">Finances</mat-option>
+        <mat-option value="fun-recreation">Fun and Recreation</mat-option>
+        <mat-option value="health">Health</mat-option>
+        <mat-option value="personal-development">Personal Development</mat-option>
+        <mat-option value="romance">Romance</mat-option>
+        <mat-option value="spiritual">Spiritual</mat-option>
+        <mat-option value="social">Social</mat-option>
+        <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-select matInput required class="frequency-list"
+                [(ngModel)]="data.goal.frequency"
+                placeholder="Frequency"
+                name="data.goal.frequency">
+        <mat-option value="Does not repeat">Does not repeat</mat-option>
+        <mat-option value="Daily" class="daily">Daily</mat-option>
+        <mat-option value="Weekly">Weekly</mat-option>
+        <mat-option value="Monthly">Monthly</mat-option>
+    </mat-select>
+    <mat-form-field hintLabel="Max 100 characters">
+        <input matInput #input class="purposeField"
+               maxlength="100"
+               placeholder="What is the purpose?"
+               [(ngModel)]="data.goal.purpose"
+               name="data.goal.purpose">
+    </mat-form-field>
+    <mat-form-field class="end">
+        <input
+            #input
+            class="endDate"
+            matInput [matDatepicker]="end"
+            placeholder="Choose an End Date"
+            [(ngModel)]="data.goal.end"
+            name="data.goal.end">
+        <mat-datepicker-toggle class="endButton" matSuffix [for]="end"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #end></mat-datepicker>
+    </mat-form-field>
+    <div class="button-options">
+        <button mat-raised-button
+                id="confirmAddGoalButton"
+                class="submit"
+                [mat-dialog-close]="data.goal"
+                [disabled]="!newGoalForm.form.valid"
+                type="button">Submit
+        </button>
+        <button mat-raised-button
+                id="exitWithoutAddingButton"
+                (click)="onNoClick()">Cancel
+        </button>
+    </div>
+</form>
+
+

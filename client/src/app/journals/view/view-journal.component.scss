@@ -1,0 +1,84 @@
+.sidenav {
+    height: 100%;
+    width: 275px;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    text-align: center;
+    //background-color: #546E7A;
+}
+
+.journal {
+    margin-left: 275px;
+    max-width: 100%;
+}
+
+.journal-card {
+    margin: 15px;
+}
+
+.journal-title {
+    font-size: 20px;
+}
+
+.action-button {
+    position: absolute;
+    margin-top: 15px;
+}
+
+.back {
+    width: 50%;
+}
+
+.edit {
+
+    margin-top: 25px;
+    right: 50px;
+    color: #1976D2;
+}
+
+.delete {
+    margin-top: 25px;
+    right: 10px;
+    color: #F44336;
+}
+
+.page-title {
+    margin: 15px;
+    font-size: 34px;
+}
+
+.edit:hover {
+    background-color: #E0F7FA;
+}
+
+.delete:hover {
+    background-color: #FFEBEE;
+}
+
+.break-word {
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.mobile-date{
+    text-align: center;
+}
+
+.mobile-title {
+    text-align: center;
+    float: inherit;
+    word-wrap: break-word;
+}
+
+.mobile-content {
+    margin-left: 10px;
+    white-space: pre-line;
+    padding-bottom: 62px;
+}
+
+.mobile-edit {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}

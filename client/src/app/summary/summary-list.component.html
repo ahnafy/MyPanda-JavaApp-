@@ -1,0 +1,261 @@
+<div layout-gt-sm="row" [ngClass]="appService.styleClassSelector()">
+    <div flex-gt-sm="80" flex-offset-gt-sm="10">
+
+        <mat-card class="graphCard">
+
+            <div class="tabs">
+                <mat-tab-group #myTabGroup>
+
+                    <!-- class for mat-tab is overwritten on build -->
+                    <mat-tab label="Graphs">
+
+                    <h3 class="your-summaries-title">Your Emotions</h3>
+                        <h6 class="your-summaries-title">There are {{numberEmotions()}} entries represented</h6>
+                    <canvas id="Chart" ></canvas>
+                    <br>
+
+                        <div class="graphFilter">
+                            <mat-button-toggle-group>
+                                <button mat-button class="barradio" [ngClass]="{selected:this.graphMode == 'bar',
+                            deselected:this.graphMode!=='bar'}"
+                                        value="bar" (click)="this.graphMode = 'bar' ; updateChart()">Stacked Bar Graph
+                                </button>
+                                <button mat-button class="lineradio" [ngClass]="{selected:this.graphMode == 'line',
+                            deselected:this.graphMode!=='line'}"
+                                        value="line" (click)="this.graphMode = 'line' ; updateChart()">Line Graph
+                                </button>
+                            </mat-button-toggle-group>
+                            <hr>
+
+                            View entries by<br><br>
+                            <mat-button-toggle-group name="dropdown" class="labelType"
+                                                     #input>
+                                <button mat-button class="day" [ngClass]="{selected:this.inputType=='day',
+                            deselected:this.inputType!=='day'}"
+                                        value="day" (click)="this.inputType = 'day' ; updateChart()">
+                                    Hour
+                                </button>
+                                <button mat-button class="week" [ngClass]="{selected:this.inputType=='week',
+                            deselected:this.inputType!=='week'}"
+                                        value="week" (click)="this.inputType = 'week' ; updateChart()">
+                                    Weekday
+                                </button>
+                                <button mat-button class="month" [ngClass]="{selected:this.inputType=='month',
+                            deselected:this.inputType!=='month'}"
+                                        value="month" (click)="this.inputType = 'month' ; updateChart()">
+                                    Date
+                                </button>
+                                <button mat-button class="year" [ngClass]="{selected:this.inputType=='year',
+                            deselected:this.inputType!=='year'}"
+                                        value="year" (click)="this.inputType = 'year' ; updateChart()">
+                                    Month
+                                </button>
+                            </mat-button-toggle-group>
+                            <hr>
+
+                            Include entries from<br><br>
+                            <mat-button-toggle-group>
+                                <button mat-button class="pastXYes" [ngClass]="{selected:this.limitedPast,
+                            deselected:!this.limitedPast}"
+                                        value="true" (click)="this.limitedPast = true ; updateChart()">
+                                    {{pastXButtonDisplay()}}
+                                </button>
+                                <button mat-button class="pastXNo" [ngClass]="{selected:!this.limitedPast,
+                            deselected:this.limitedPast}"
+                                        value="false" (click)="this.limitedPast = false ; updateChart()">
+                                    All Time
+                                </button>
+                            </mat-button-toggle-group>
+                            <hr>
+                            <mat-checkbox class="colorblindBox" (click)="toggleCB() ; updateChart()">Colorblind Mode
+                            </mat-checkbox>
+
+                        </div>
+
+                    </mat-tab>
+
+                    <div class="table-tab-div">
+                    <mat-tab label="Table" class="table-tab">
+                        <!--<mat-card class="filtering">-->
+                        <div class="top" class="filterCard">
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+                            </script>
+                            <h3><i>Filtering:</i></h3>
+
+                            <div class="filterContents">
+                                <form>
+                                    <!--# The Angular feature-->
+                                    <label> Emotion:</label>
+
+                                    <mat-select name="dropdown" class="summaryEmotion"
+                                                #input placeholder="Filter by Emotion"
+                                                [(ngModel)]="summaryEmotion">
+                                        <mat-option class="md-option-0" selected value="All">
+                                            All Emotions
+                                        </mat-option>
+                                        <mat-option class="md-option-1" value="Happy">Happy</mat-option>
+                                        <mat-option class="md-option-2" value="Sad">Sad</mat-option>
+                                        <mat-option class="md-option-3" value="Meh">Meh</mat-option>
+                                        <mat-option class="md-option-4" value="Mad">Mad</mat-option>
+                                        <mat-option class="md-option-5" value="Anxious">Anxious</mat-option>
+                                        <!-- mat-option ids autoreplaced by md-option-x anyway -->
+                                    </mat-select>
+                                </form>
+
+                                <br>
+
+                                <form>
+                                    <label> Intensity: </label>
+                                    <mat-select name="dropdownInt" class="summaryInt"
+                                                #input placeholder="Filter by Intensity"
+                                                [(ngModel)]="summaryIntensity">
+                                        <mat-option class="md-option-6" selected value="All">All</mat-option>
+                                        <mat-option class="md-option-7" value="1">1</mat-option>
+                                        <mat-option class="md-option-8" value="2">2</mat-option>
+                                        <mat-option class="md-option-9" value="3">3</mat-option>
+                                        <mat-option class="md-option-10" value="4">4</mat-option>
+                                        <mat-option class="md-option-11" value="5">5</mat-option>
+                                    </mat-select>
+                                </form>
+
+                                <mat-form-field class="start">
+                                    <input
+                                        class="startDate"
+                                        matInput [matDatepicker]="start"
+                                        placeholder="Choose a Start Date"
+                                        [(ngModel)]="startDate"
+                                        (input)="startDate = $event.target.value"
+                                        disabled>
+                                    <mat-datepicker-toggle class="startButton" matSuffix [for]="start"
+                                                           enabled></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi="true" #start disabled="false"></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field class="end">
+                                    <input
+                                        class="endDate"
+                                        matInput [matDatepicker]="end"
+                                        placeholder="Choose an End Date"
+                                        [(ngModel)]="endDate"
+                                        (input)="endDate = $event.target.value"
+                                        disabled>
+                                    <mat-datepicker-toggle class="endButton" matSuffix
+                                                           [for]="end"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi="true" #end disabled="false"></mat-datepicker>
+                                </mat-form-field>
+                                <button mat-raised-button class="clearDatesButton" (click)="this.clearDateFilter()">
+                                    Clear Date Filters
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!--</mat-card>-->
+
+                        <!--<mat-card>-->
+                        <mat-card-title class="your-summaries-title">Your Emotions</mat-card-title>
+
+                        <mat-card-subtitle class="your-summaries-title">You have a total of {{totalEntries()}}
+                            emotions to view
+                        </mat-card-subtitle>
+                        <div class="page-scroll-buttons">
+                            <button *ngIf="this.currentPage != 1" mat-icon-button class="first-page" (click)="goFirstPage();
+                    showSummaries()" [disabled]="false" matTooltip="First Page">
+                                <mat-icon>fast_rewind</mat-icon>
+                            </button>
+                            <button *ngIf="this.currentPage == 1" mat-icon-button class="previous-page" (click)="this.currentPage = this.currentPage - 1;
+                    showSummaries()" [disabled]="true">
+                                <mat-icon>keyboard_arrow_left</mat-icon>
+                            </button>
+                            <button *ngIf="this.currentPage != 1" mat-icon-button class="previous-page" (click)="this.currentPage = this.currentPage - 1;
+                    showSummaries()" [disabled]="false" matTooltip="Previous Page">
+                                <mat-icon>keyboard_arrow_left</mat-icon>
+                            </button>
+                            {{this.currentPage}}
+                            <button *ngIf="maxNumPages() == false" mat-icon-button class="next-page" (click)="this.currentPage = this.currentPage + 1;
+                    showSummaries()" [disabled]="true">
+                                <mat-icon>keyboard_arrow_right</mat-icon>
+                            </button>
+                            <button *ngIf="maxNumPages() == true " mat-icon-button class="next-page" (click)="this.currentPage = this.currentPage + 1;
+                    showSummaries()" [disabled]="false" matTooltip="Next Page">
+                                <mat-icon>keyboard_arrow_right</mat-icon>
+                            </button>
+                            <button *ngIf="maxNumPages() == true " mat-icon-button class="last-page" (click)="goLastPage();
+                    showSummaries()" [disabled]="false" matTooltip="Last Page">
+                                <mat-icon>fast_forward</mat-icon>
+                            </button>
+                        </div>
+                        <mat-accordion *ngIf="summaries && myTabGroup.selectedIndex == 1; else summariesError">
+                            <div class="entire-table">
+                                <div class="table-header-div">
+                                    <mat-table #table class="summary-table" [dataSource]>
+                                        <ng-container matColumnDef="emotion">
+                                            <mat-header-cell *matHeaderCellDef>Emotion</mat-header-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="intensity">
+                                            <mat-header-cell *matHeaderCellDef>Intensity</mat-header-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="date">
+                                            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="description">
+                                            <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                                        </ng-container>
+                                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    </mat-table>
+                                </div>
+                                <div class="table-div">
+                                    <mat-table #table class="summary-table"
+                                               *ngFor="let summary of this.filterSummaries(summaryEmotion, summaryIntensity, startDate, endDate) | dateSort: 'date'">
+                                        <ng-container matColumnDef="emotion">
+                                            <mat-header-cell *matHeaderCellDef><img class="selected-emotion"
+                                                                                    src="../../assets/images/emotions/{{summary.emotion}}.svg"
+                                                                                    matTooltip="{{summary.emotion}}">
+                                            </mat-header-cell>
+                                            <mat-cell class="duration-cell"></mat-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="intensity">
+                                            <mat-header-cell *matHeaderCellDef>{{summary.intensity}}</mat-header-cell>
+                                            <mat-cell class="description-cell"></mat-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="date">
+                                            <mat-header-cell *matHeaderCellDef>
+                                                {{summary.date | date : "MMM d, yyyy 'at' h:mm a"}}
+                                            </mat-header-cell>
+                                            <mat-cell class="duration-cell"></mat-cell>
+                                        </ng-container>
+                                        <ng-container matColumnDef="description">
+                                            <mat-header-cell *matHeaderCellDef>
+                                                <a (click)="showAllDescription(summary.description)">
+                                                    <button mat-icon-button
+                                                            class="show-more-button"
+                                                            *ngIf="summary.description != ''"
+                                                            matTooltip="View Description">
+                                                        <img src="../../assets/images/eye.svg">
+                                                    </button>
+                                                </a>
+                                            </mat-header-cell>
+                                            <mat-cell class="duration-cell"></mat-cell>
+                                        </ng-container>
+                                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    </mat-table>
+                                </div>
+                            </div>
+                        </mat-accordion>
+                        <ng-template #summariesError>
+                            <mat-error>
+                                There was a problem loading the goals.
+                                Possibly the server is down or perhaps there are network issues.
+                            </mat-error>
+                            <mat-error>
+                                Please wait a bit and try again or start the server.
+                            </mat-error>
+                        </ng-template>
+                        <!--</mat-card>-->
+                    </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </div>
+        </mat-card>
+    </div>
+</div>

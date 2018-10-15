@@ -1,0 +1,29 @@
+<form #newLinkForm="ngForm" class="new-object-form">
+    <mat-card-title class="new-object-title">New Contact</mat-card-title>
+    <mat-form-field hintLabel="Max 30 characters">
+        <input matInput #input required
+               maxlength="30"
+               id="nameField" placeholder="Name"
+               [(ngModel)]="data.contact.name"
+               name="data.journal.title">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput #input required
+               maxlength="10"
+               id="phoneField" placeholder="Phone number"
+               [(ngModel)]="data.contact.phone"
+               name="data.link.phone">
+    </mat-form-field>
+    <div class="button-options">
+        <button mat-raised-button
+                id="confirmAddContactButton"
+                [mat-dialog-close]="data.contact"
+                [disabled]="!newLinkForm.form.valid"
+                type="button">Submit
+        </button>
+        <button mat-raised-button
+                id="exitWithoutAddingButton"
+                (click)="onNoClick()">Cancel
+        </button>
+    </div>
+</form>

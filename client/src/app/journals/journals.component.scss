@@ -1,0 +1,71 @@
+@import "../../theme";
+@import "../../styles";
+
+.filter-fields {
+    font-size: 14px;
+    width: 90%;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+.prompts {
+    width: 90%;
+    height: 175px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.journals-section {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.journal-card {
+    margin: 15px;
+    width: 325px;
+    height: 200px;
+}
+
+.journal-card:hover {
+    transform: scale(1.05);
+}
+
+.journal-title {
+    text-align: left;
+    font-size: 18px;
+}
+
+.add-journal-fab-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+.journals-mobile-search {
+    left: 20px;
+    width: 100%;
+    margin-bottom: -20px;
+}
+
+.journal-card-open {
+    text-decoration: none;
+    color: black;
+}
+
+.journals-mobile-search{
+    margin-bottom: -20px;
+    width: 65%;
+    margin-left: -17px;
+}
+
+.mobile-date {
+    font-size: 16px;
+}
+
+.random-prompts-mob-button {
+    font-size: 13px;
+    margin-top: 10px;
+    float: right;
+}
+
+

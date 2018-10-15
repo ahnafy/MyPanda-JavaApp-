@@ -1,0 +1,143 @@
+@import "../../theme";
+@import "../../styles";
+
+.add-goal-fab-button-fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+.goal-card-open {
+    text-decoration: none;
+    color: black;
+    left: 75px;
+}
+.right-side-mob {
+    width: 90%;
+    margin-bottom: 1px;
+    float: left;
+}
+
+.header-options {
+    z-index: 1;
+    padding: 5px;
+    position: fixed;
+    height: 70px;
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px black solid;
+}
+
+.goal-check-box-mob {
+    width: 10%;
+    margin-bottom: -10 px;
+    float: left;
+    padding-top: 15px;
+}
+
+.goal-card {
+    margin: 15px;
+    width: 325px;
+}
+
+.goal-title {
+    text-align: left;
+    font-size: 18px;
+}
+
+.all-today-toggle-card {
+    width: 90%;
+    margin: 0 auto 15px;
+}
+
+.status-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.option-selector-card {
+    width: 90%;
+    height: 160px;
+    margin: 0 auto;
+}
+
+.action-button {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 270px;
+}
+
+.uncheck {
+    color: #4CAF50;
+}
+
+.edit {
+    color: #1976D2;
+}
+
+.delete {
+    color: #F44336;
+}
+
+.edit:hover {
+    background-color: #E0F7FA;
+}
+
+.delete:hover {
+    background-color: #FFEBEE;
+}
+
+.goal-action-buttons-mobile {
+    float: right;
+}
+
+.goals-list {
+    margin-top: 70px;
+}
+
+.category-img {
+    background-size: cover;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.business {
+    background-image: url('../../assets/images/goals/business-career.png');
+}
+
+.finances {
+    background-image: url('../../assets/images/goals/finance.png');
+}
+
+.family {
+    background-image: url('../../assets/images/goals/family.png');
+}
+
+.fun-recreation {
+    background-image: url('../../assets/images/goals/fun-recreation.png');
+}
+
+.health {
+    background-image: url('../../assets/images/goals/health.png');
+}
+
+.personal-development {
+    background-image: url('../../assets/images/goals/personal-development.png');
+}
+
+.romance {
+    background-image: url('../../assets/images/goals/romance.png');
+}
+
+.spiritual {
+    background-image: url('../../assets/images/goals/spiritual.png');
+}
+
+.social {
+    background-image: url('../../assets/images/goals/social.png');
+}
+
+.other {
+    background-image: url('../../assets/images/goals/other.png');
+}

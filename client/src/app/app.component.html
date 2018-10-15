@@ -1,0 +1,79 @@
+<div [ngClass]="appService.styleClassSelector()">
+<td-layout #layout>
+    <td-navigation-drawer id="navBar" class="nav-drawer" flex>
+        <mat-toolbar>
+            <span *ngIf="appService.isSignedIn()"></span>
+            <span *ngIf="!appService.isSignedIn()" class="g-signin2" (click)="signIn()"></span>
+            <div *ngIf="appService.isSignedIn()" class="username">
+                {{username}}
+            </div>
+            <span class="spacer"></span>
+            <div class="close-nav" tdLayoutToggle>
+                <button mat-icon-button>
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+        <mat-nav-list class="side-nav-items">
+            <a mat-list-item [routerLink]="['/']" (click)="layout.close()" routerLinkActive="nav-active"
+               [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon>mood</mat-icon>
+                Home</a>
+            <a mat-list-item [routerLink]="['/goals']" (click)="layout.close()" routerLinkActive="nav-active">
+                <mat-icon>playlist_add_check</mat-icon>
+                Goals</a>
+            <a mat-list-item [routerLink]="['/journals']" (click)="layout.close()" routerLinkActive="nav-active">
+                <mat-icon><i class="material-icons">import_contacts</i></mat-icon>
+                Journals</a>
+            <a mat-list-item [routerLink]="['/resources']" (click)="layout.close()" routerLinkActive="nav-active">
+                <mat-icon><i class="material-icons">contact_phone</i></mat-icon>
+                Resources</a>
+            <a mat-list-item [routerLink]="['/summary']" (click)="layout.close()" routerLinkActive="nav-active">
+                <mat-icon><i class="material-icons">assessment</i></mat-icon>
+                Stats</a>
+            <a mat-list-item [routerLink]="['/settings']" (click)="layout.close()" routerLinkActive="nav-active">
+                <mat-icon><i class="material-icons">settings</i></mat-icon>
+                Settings</a>
+            <a mat-list-item *ngIf="appService.isSignedIn()" (click)="signOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout</a>
+        </mat-nav-list>
+    </td-navigation-drawer>
+    <td-layout-nav class="nav-bar">
+        <div td-toolbar-content layout="row" layout-align="start center" flex *ngIf="!isJournalView() && !isGoalView()">
+            <button mat-icon-button td-menu-button tdLayoutToggle hide-gt-xs>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span hide-xs class="desktop-title"><button mat-button class="computer"
+                                                        [routerLink]="['/']"><img class="home-img" src="../assets/images/home-icon-192x192.png"></button></span>
+            <span hide-gt-xs>My Panda</span>
+            <span flex></span>
+            <a class="desktop-goals computer" mat-button [routerLink]="['/goals']" routerLinkActive="nav-active"
+               hide-xs>Goals</a>
+            <a class="desktop-journals computer" mat-button [routerLink]="['/journals']" routerLinkActive="nav-active"
+               hide-xs>Journals</a>
+            <a class="desktop-resources computer" mat-button [routerLink]="['/resources']" routerLinkActive="nav-active"
+               hide-xs>Resources</a>
+            <a class="desktop-stats computer" mat-button [routerLink]="['/summary']" routerLinkActive="nav-active"
+               hide-xs>Stats</a>
+            <a class="desktop-settings computer" mat-button [routerLink]="['/settings']" routerLinkActive="nav-active"
+               hide-xs>Settings</a>
+            <a class="computer" hide-xs>
+                <div *ngIf="!appService.isSignedIn()" class="g-signin2" (click)="signIn()"></div>
+                <button *ngIf="appService.isSignedIn()" mat-raised-button (click)="signOut()">Logout</button>
+            </a>
+        </div>
+        <div td-toolbar-content layout="row" layout-align="start center" flex *ngIf="isJournalView()">
+            <button class="mobile-back" mat-icon-button (click)="backClicked()"><mat-icon>arrow_back</mat-icon></button>
+            <span class="spacer"></span>
+            <button class="mobile-back" mat-icon-button (click)="deleteJournal(currentId); backClicked()"><mat-icon>delete_forever</mat-icon></button>
+        </div>
+        <div td-toolbar-content layout="row" layout-align="start center" flex *ngIf="isGoalView()">
+            <button class="mobile-back" mat-icon-button (click)="backClicked()"><mat-icon>arrow_back</mat-icon></button>
+            <span class="spacer"></span>
+            <button class="mobile-back" mat-icon-button (click)="deleteGoal(currentId); backClicked()"><mat-icon>delete_forever</mat-icon></button>
+        </div>
+        <router-outlet></router-outlet>
+    </td-layout-nav>
+</td-layout>
+</div>
